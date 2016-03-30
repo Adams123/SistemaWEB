@@ -1,0 +1,146 @@
+<!--
+Adams Vietro C da Silva - 6791943
+Antônio Pedro Mazzarolo - 8626232
+-->
+
+<!DOCTYPE html>
+<html ng-app="twitter">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+   </head>
+   <body>
+      <div class="container-fluid" ng-controller="StoreController as store">
+      <div class="row" style="border: 2px solid black">
+         <div class="col-md-6">
+            <h3 class="text-primary text-left">
+               Twitter +-
+            </h3>
+         </div>
+         <div class="col-md-4">
+            <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+         </div>
+         <div class="col-md-2">
+            <button type="button" class="btn btn-primary">
+            Sair
+            </button>
+         </div>
+      </div>
+      <div class="row" style="border: 2px solid black">
+         <div class="col-md-4">
+            <div class="row">
+               <div class="col-md-12" style="border: 2px solid black">
+                  <img alt="Bootstrap Image Preview" src="http://lorempixel.com/140/140/">
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12" style="border: 2px solid black">
+                  <dl>
+                     <dt>
+                        Description lists
+                     </dt>
+                     <dd>
+                        A description list is perfect for defining terms.
+                     </dd>
+                     <dt>
+                        Euismod
+                     </dt>
+                     <dd>
+                        Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                     </dd>
+                     <dd>
+                        Donec id elit non mi porta gravida at eget metus.
+                     </dd>
+                     <dt>
+                        Malesuada porta
+                     </dt>
+                     <dd>
+                        Etiam porta sem malesuada magna mollis euismod.
+                     </dd>
+                     <dt>
+                        Felis euismod semper eget lacinia
+                     </dt>
+                     <dd>
+                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                     </dd>
+                  </dl>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-8" >
+            <div class="row" style="border: 2px solid black">
+               <div class="col-md-12">
+                  <li ng-repeat="publication in store.publications">
+                     <p>
+                     <blockquote>
+                        <strong>{{publication.name}}</strong>
+                  <li ng-repeat="post in publication.posts">
+                  {{post.text}}<br>
+                  {{post.date}}
+                  </li>
+                  </blockquote>
+                  </p>
+                  </li>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <div class="tabbable" id="tabs-737703">
+                  <ul class="nav nav-tabs">
+                     <li class="active">
+                        <a href="#tabPosts" data-toggle="tab">Novo Post</a>
+                     </li>
+                     <li>
+                        <a href="#tabAmigos" data-toggle="tab">Amigos</a>
+                     </li>
+                     <li>
+                        <a href="#tabConfigs" data-toggle="tab">Configurações</a>
+                     </li>
+                  </ul>
+                  <div class="tab-content">
+                     <div class="tab-pane active" id="tabPosts">
+                        <p>
+                        <form ng-controller="PostsController as postCtrl" ng-submit="postCtrl.addPost(publication)" name="postForm">
+                           <fieldset class="form-group">
+                              Nome: <input type="textbox" class="form-control" id="postName" ng-model="postCtrl.name">
+                           </fieldset>
+                           <fieldset class="form-group">
+                              Texto: <input type="textbox" class="form-control" id="postText" ng-model="postCtrl.posts.text" >
+                           </fieldset>
+                           <fieldset class="form-group">
+                              Data: <input type="textbox" class="form-control" id="postDate" ng-model="postCtrl.posts.date">
+                           </fieldset>
+                           <fieldset class="form-group">
+                              <button type="submit" class="btn btn-default">
+                              Enviar
+                              </button>
+                           </fieldset>
+                        </form>
+                        </p>
+                     </div>
+                 
+                     <div class="tab-pane" id="tabAmigos">
+                        <p>
+                           Amigos aqui
+                        </p>
+                     </div>
+                     <div class="tab-pane" id="tabConfigs">
+                        <p>
+                           Configurações aqui
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="js/angular.min.js"></script>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/scripts.js"></script>
+   </body>
+</html>
