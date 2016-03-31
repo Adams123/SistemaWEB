@@ -2,23 +2,37 @@
   var app = angular.module('twitter', []);
 
   app.controller('StoreController', function(){
-    this.publications=publications;
+    this.publications=users;
   }),
 
   app.controller('PostsController', function() {
     this.post = {};
 
     this.addPost = function(input) {
-      input.publications.push(this.publications);
-      input.publications.posts.push(this.post);
+      input.users.push(this.users);
+      input.users.posts.push(this.post);
       this.post = {};
     };
   });
 
+
+  app.controller('FirstController', function( $scope, Data){
+     $scope.Data = Data;
+  });
+
+  app.controller('SecondController', function($scope, Data){
+    $scope.Data = Data;
+  });
+
+app.factory('Data', function(){
+    return {Data: ''}
+});
+
+
 var users = [
     {
       name: 'Rogerio',
-      login: 'rogerio@gmail.com'
+      login: 'rogerio@gmail.com',
       pass: '123456',
       picture: '',
       descricao: 'Sou o Rogerio',
@@ -31,14 +45,14 @@ var users = [
         date: "11/03/2016"
       }]
     }, {
-      name: 'Andre',
-      login: 'andre@gmail.com'
+      name: 'Ricardo',
+      login: 'Ricardo@gmail.com',
       pass: '123456',
       picture: '',
-      descricao: 'Sou o Andre',
+      descricao: 'Sou o Ricardo',
       nascimento: '22/07/1990',
       posts: [{
-        text: "Ola eu sou o Andre",
+        text: "Ola eu sou o Ricardo",
         date: "31/03/2016"
       }, {
         text: "So testando tambem",
@@ -46,4 +60,13 @@ var users = [
       }]
     }
   ];
+
+  var Data = [
+  {
+  FirstName: 'Adams'
+}
+  ];
+
 })();
+
+

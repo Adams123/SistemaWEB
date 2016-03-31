@@ -1,6 +1,8 @@
 <!--
 Adams Vietro C da Silva - 6791943
 Antônio Pedro Mazzarolo - 8626232
+
+Na tab de entrada temos a fonte, e na de saída temos onde a informação é replicada. O código das mesmas estão na linha 128
 -->
 
 <!DOCTYPE html>
@@ -72,7 +74,7 @@ Antônio Pedro Mazzarolo - 8626232
          </div>
          <div class="col-md-8" >
             <div class="row" style="border: 2px solid black">
-               <div class="col-md-12">
+               <div class="col-md-12" id="postExib">
                   <li ng-repeat="publication in store.publications">
                      <p>
                      <blockquote>
@@ -89,22 +91,22 @@ Antônio Pedro Mazzarolo - 8626232
          </div>
          <div class="row">
             <div class="col-md-12">
-               <div class="tabbable" id="tabs-737703">
+               <div class="tabbable" id="allTabs">
                   <ul class="nav nav-tabs">
                      <li class="active">
                         <a href="#tabPosts" data-toggle="tab">Novo Post</a>
                      </li>
                      <li>
-                        <a href="#tabAmigos" data-toggle="tab">Amigos</a>
+                        <a href="#tabAmigos" data-toggle="tab">Entrada</a>
                      </li>
                      <li>
-                        <a href="#tabConfigs" data-toggle="tab">Configurações</a>
+                        <a href="#tabConfigs" data-toggle="tab">Saída</a>
                      </li>
                   </ul>
                   <div class="tab-content">
-                     <div class="tab-pane active" id="tabPosts">
+                     <div class="tab-pane" id="tabPosts">
                         <p>
-                        <form ng-controller="PostsController as postCtrl" ng-submit="postCtrl.addPost(publication)" name="postForm">
+                        <form ng-controller="PostsController as postCtrl" ng-submit="postCtrl.addPost(publication)" name="postForm" id="postForm">
                            <fieldset class="form-group">
                               Nome: <input type="textbox" class="form-control" id="postName" ng-model="postCtrl.name">
                            </fieldset>
@@ -123,14 +125,15 @@ Antônio Pedro Mazzarolo - 8626232
                         </p>
                      </div>
                  
-                     <div class="tab-pane" id="tabAmigos">
-                        <p>
-                           Amigos aqui
+                     <div class="tab-pane active" id="tabAmigos" ng-controller="FirstController as first">
+                        <p id="parSource">
+                           <input ng-model="Data.FirstName">
+                           <br>Digite algo aqui que aparece na outra aba também: <strong>{{Data.FirstName}}</strong>
                         </p>
                      </div>
-                     <div class="tab-pane" id="tabConfigs">
-                        <p>
-                           Configurações aqui
+                     <div class="tab-pane" id="tabConfigs" ng-controller = "SecondController as second">
+                        <p id="parDest">
+                           Viu? -> {{Data.FirstName}}
                         </p>
                      </div>
                   </div>
