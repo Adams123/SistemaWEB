@@ -18,7 +18,10 @@
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
     'bower_components/bootstrap/dist/css/bootstrap.min.css'
-  , 'styles/**/*.css'
+
+
+    
+    , 'styles/**/*.css'
 ];
 
 
@@ -27,10 +30,9 @@ var cssFilesToInject = [
 var jsFilesToInject = [
 
   // Load sails.io before everything else
-  'js/dependencies/sails.io.js',
-
-    'bower_components/jquery/dist/jquery.min.js'
+  'js/dependencies/sails.io.js'
     , 'bower_components/bootstrap/dist/js/bootstrap.min.js'
+    , 'bower_components/jquery/dist/jquery.min.js'
     , 'bower_components/angular/angular.min.js'
     , 'bower_components/angular-route/angular-route.min.js',
 

@@ -4,11 +4,9 @@ app_module.config(['$routeProvider'
     , function ($routeProvider)
     {
         $routeProvider.when('/', {
-            templateUrl: 'templates/index.html'
-        }).when('/read', {
-            templateUrl: '/templates/read.html'
+            templateUrl: '/templates/index.html'
         }).otherwise({
             redirectTo: '/'
         })
-        }
+    }
 ]);

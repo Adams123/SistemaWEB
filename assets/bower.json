@@ -1,6 +1,6 @@
 {
-    "name": "WEB"
-    , "homepage": "index.html"
+    "name": "app"
+    , "homepage": "index"
     , "authors": [
     "Adams"
     , "Elidio"
